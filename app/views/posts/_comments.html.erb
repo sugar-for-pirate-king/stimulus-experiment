@@ -1,0 +1,10 @@
+<p>
+  <% if post.recent_comments.count.zero? %>
+    <p>Tidak ada komentar</p>
+  <% else %>
+    <% post.recent_comments.each do |comment| %>
+      <%= render 'posts/comment', comment: comment %>
+      <hr>
+    <% end %>
+  <% end %>
+</p>

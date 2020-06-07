@@ -1,0 +1,26 @@
+<h1><%= @post.title %></h1>
+
+<div>
+  <%= sanitize(Kramdown::Document.new(@post.body).to_html) %>
+</div>
+
+<div>
+  <div id="likes">
+    <%= render 'likes', post: @post %>
+  </div>
+  <%= button_to 'Like', likes_path(@post), remote: true %>
+</div>
+
+<hr>
+
+<h4>Komentar</h4>
+<%= form_with(model: @post.comments.build) do |form| %>
+<div>
+  <%= form.text_field :body, placeholder: 'tambahkan komentar' %>
+  <%= form.submit 'Tambahkan' %>
+</div>
+<% end %>
+
+<div id="comments">
+  <%= render 'comments', post: @post %>
+</div>

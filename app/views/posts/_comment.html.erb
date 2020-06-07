@@ -1,0 +1,15 @@
+<div data-controller="comment">
+  <%= form_with(model: comment, url_path: comment_path(comment), method: :put, data: { target: 'comment.form' }, class: 'd-none') do |form| %>
+    <%= form.text_field :body %>
+    <%= form.submit 'Update comment' %>
+  <% end %>
+
+  <div data-target="comment.content">
+    <p><%= comment.body %></p>
+    <p>at <%=comment.updated_at%> </p>
+    <p>
+      <%= link_to 'Edit', '#', data: { action: 'click->comment#edit' } %>
+      <%= link_to 'Destroy', comment_path(comment.id), method: :delete, remote: true %>
+    </p>
+  </div>
+</div>
