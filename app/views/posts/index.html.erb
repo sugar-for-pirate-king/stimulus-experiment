@@ -1,0 +1,21 @@
+<div data-controller="search" data-turbolinks-permanent>
+  <%= form_with(url: posts_path, method: :get, data: { target: 'search.form' }, remote: true) do |form| %>
+    <%= form.select :limit, options_for_select([1, 5, 10], selected: params[:limit]), {}, { class: 'form-control', data: { action: 'change->search#call' } } %>
+  <% end %>
+</div>
+
+<br>
+
+<table class="table">
+  <tr>
+    <td>#</td>
+    <td>Title</td>
+  </tr>
+
+  <% @posts.each.with_index(1) do |post, index| %>
+    <tr>
+      <td><%= index %></td>
+      <td><%= post.title %></td>
+    </tr>
+  <% end %>
+</table>
