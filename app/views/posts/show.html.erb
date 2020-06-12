@@ -15,10 +15,10 @@
 
 <h4>Komentar</h4>
 <%= form_with(model: @post.comments.build) do |form| %>
-<div>
-  <%= form.text_field :body, placeholder: 'tambahkan komentar' %>
-  <%= form.submit 'Tambahkan' %>
-</div>
+  <div>
+    <%= form.text_field :body, placeholder: 'tambahkan komentar' %>
+    <%= form.submit 'Tambahkan' %>
+  </div>
 <% end %>
 
 <div id="comments">
