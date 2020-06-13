@@ -1,0 +1,17 @@
+<% if @posts.any? %>
+  <table class="table">
+    <tr>
+      <td>#</td>
+      <td>Title</td>
+    </tr>
+
+    <% posts.each.with_index(1) do |post, index| %>
+      <tr>
+        <td><%= index %></td>
+        <td><%= post.title %></td>
+      </tr>
+    <% end %>
+  </table>
+<% else %>
+  <p>No posts provided.</p>
+<% end %>
