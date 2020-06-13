@@ -1,0 +1,3 @@
+<% if page.last? == false %>
+  <%= link_to "Load more data", posts_path(page: page.next_param), remote: true %>
+<% end %>

@@ -1,11 +1,20 @@
 <div data-controller="search">
   <%= form_with(url: posts_path, method: :get, data: { target: 'search.form' }, remote: true) do |form| %>
-    <%= form.text_field :query, value: params[:query], class: 'form-control', data: { action: 'keyup->search#call' } %>
+    <%= form.text_field :query, 
+                        value: params[:query], 
+                        placeholder: 'Type something',
+                        class: 'form-control', 
+                        data: { action: 'keyup->search#call' } %>
   <% end %>
 </div>
 
 <br>
-<div id="results">
-  <%= render 'posts', posts: @posts %>
+
+<div id="posts">
+  <%= render 'posts', posts: @records %>
+</div>
+
+<div id="load-more-data">
+  <%= render 'load_more_data_link', page: @page, remote: true %>
 </div>
 
